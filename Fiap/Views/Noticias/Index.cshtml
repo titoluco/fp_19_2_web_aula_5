@@ -1,0 +1,15 @@
+﻿@model Noticia
+
+<form asp-controller="noticias" asp-action="index" method="post">
+
+
+    @*<input type="Titulo" name="Titulo" value="" />*@
+    <input asp-for="Id" />
+
+    <input asp-for="Titulo" class="classeCssPadraoDoMeuTexto" />
+
+    @Html.EditorFor(a => a.Titulo, new { @class="classeCssPadraoDoMeuTexto"})
+    <input type="submit" name="name" value="Save" />
+
+</form>
+

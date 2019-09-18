@@ -19,6 +19,12 @@ namespace Fiap.Controllers
             var homeViewModel = new HomeViewModel() { totalDeNoticias =123 };
             return View(homeViewModel);
         }
+
+        [HttpGet]
+        public IActionResult Teste()
+        {
+            return View();
+        }
         [HttpGet]
         public IActionResult Sobre()
         {

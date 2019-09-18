@@ -2,4 +2,18 @@
 
 
 <h1>Boa noite @Model.pessoa?.Nome</h1>
-<img src="~/cat.jpeg" />
+<img src="~/cat.jpeg" asp-append-version="true" />
+
+@await Component.InvokeAsync("Noticias",new { quantidade=5, noticiasUrgentes=false })
+
+@*<vc:noticias ></vc:noticias>*@
+
+<vc:noticias quantidade="3" noticiasurgentes="true"></vc:noticias>
+
+<email nome="rodolfo"></email>
+@*<a asp-email></a>*@
+
+@*@section scripts{
+    <script>alert('teste');</script>
+
+}*@
