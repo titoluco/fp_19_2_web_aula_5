@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Fiap.Models;
+using Fiap.Core.Models;
 using Fiap.ViewComponents;
 
 namespace Fiap.Services

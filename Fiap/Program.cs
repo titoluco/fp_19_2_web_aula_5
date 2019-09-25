@@ -1,10 +1,12 @@
-﻿using Fiap.Custom;
+﻿using Fiap.Core.Context;
+using Fiap.Custom;
 using Fiap.Middlewares;
 using Fiap.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -36,6 +38,9 @@ namespace Fiap
             //service.AddScoped
             service.AddTransient<ILogCred, LogCred>();
             service.AddTransient<INoticiaService, NoticiaService>();
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb2;Trusted_Connection=True;ConnectRetryCount=0";
+            service.AddDbContext<TurismoContext>(option => option.UseSqlServer(connection));
 
             service.AddMvc();
         }

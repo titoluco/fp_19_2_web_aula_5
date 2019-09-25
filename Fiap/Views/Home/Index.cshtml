@@ -4,7 +4,7 @@
 <h1>Boa noite @Model.pessoa?.Nome</h1>
 <img src="~/cat.jpeg" asp-append-version="true" />
 
-@await Component.InvokeAsync("Noticias",new { quantidade=5, noticiasUrgentes=false })
+@await Component.InvokeAsync("Noticias", new { quantidade = 5, noticiasUrgentes = false })
 
 @*<vc:noticias ></vc:noticias>*@
 
@@ -14,6 +14,18 @@
 @*<a asp-email></a>*@
 
 @*@section scripts{
-    <script>alert('teste');</script>
+        <script>alert('teste');</script>
 
-}*@
+    }*@
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+    $.get("https://localhost:44300/api/destinos", function (data, status) {
+        console.log("Data: " + data);
+    });
+</script>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Fiap.Models;
+using Fiap.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fiap.Controllers
