@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fiap.Core.Context;
 using Fiap.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiap.Controllers
 {
+    [Authorize]
     public class DestinosController : Controller
     {
         private readonly TurismoContext _context;
@@ -22,6 +24,9 @@ namespace Fiap.Controllers
         // GET: Destinoes
         public async Task<IActionResult> Index()
         {
+
+            //User.Identity.Name
+
             return View(await _context.Destinos.ToListAsync());
         }
 

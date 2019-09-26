@@ -4,6 +4,7 @@ using Fiap.Middlewares;
 using Fiap.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,16 @@ namespace Fiap
             service.AddDbContext<TurismoContext>(option => option.UseSqlServer(connection));
 
             service.AddMvc();
+            service.AddDataProtection()
+                .SetApplicationName("admin")
+                .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:/teste"));
+
+
+            service.AddAuthentication("app")
+                .AddCookie("app", b => {
+                    b.LoginPath = "/account/index";
+                    b.AccessDeniedPath = "/account/denied";
+                });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -55,6 +66,7 @@ namespace Fiap
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
+            app.UseAuthentication();
 
             app.UseStaticFiles();
 

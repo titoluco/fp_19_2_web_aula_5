@@ -15,9 +15,24 @@ namespace Fiap.Controllers
             ViewData["NomeDoAluno"] = "Thiago";
             ViewBag.NovoNomeDoAluno = "Thiagao";
 
+            ViewBag.ConteudoSinistro = "<script>alert('oi')</script>";
+
+
             var pessoa = new Pessoa() { Nome = "Thiago" };
-            var homeViewModel = new HomeViewModel() { totalDeNoticias =123 };
+            var homeViewModel = new HomeViewModel() { totalDeNoticias = 123 };
             return View(homeViewModel);
+        }
+
+
+        [HttpGet]
+        public IActionResult Redirect(string url)
+        {
+
+            if (Url.IsLocalUrl(url))
+                return LocalRedirect(url);
+            else
+                return LocalRedirect("/");
+
         }
 
         [HttpGet]
