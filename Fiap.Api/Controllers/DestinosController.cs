@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Fiap.Api.Custom;
 using Fiap.Core.Context;
 using Fiap.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +13,8 @@ namespace Fiap.Api.Controllers
 {
     [Route("api/{controller}")]
     [ApiController]
+    //[CustomAuthorize]
+    [Authorize]
     [EnableCors("default")]
     public class DestinosController : ControllerBase
     {
@@ -42,6 +46,8 @@ namespace Fiap.Api.Controllers
         [HttpGet]
         public ActionResult<List<Destino>> List()
         {
+
+            var teste = User.Identity.Name;
             return new OkObjectResult(_turismoContext.Destinos.ToList());
         }
 

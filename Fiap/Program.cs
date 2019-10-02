@@ -49,11 +49,11 @@ namespace Fiap
                 .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:/teste"));
 
 
-            service.AddAuthentication("app")
-                .AddCookie("app", b => {
-                    b.LoginPath = "/account/index";
-                    b.AccessDeniedPath = "/account/denied";
-                });
+            //service.AddAuthentication("app")
+            //    .AddCookie("app", b => {
+            //        b.LoginPath = "/account/index";
+            //        b.AccessDeniedPath = "/account/denied";
+            //    });
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

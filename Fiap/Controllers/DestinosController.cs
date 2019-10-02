@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Fiap.Controllers
 {
-    [Authorize]
+    [AuthorizeMeu(Roles ="mkt")]
     public class DestinosController : Controller
     {
         private readonly TurismoContext _context;

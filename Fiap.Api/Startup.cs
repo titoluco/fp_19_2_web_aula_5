@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Fiap.Core.Context;
 using Microsoft.AspNetCore.Builder;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Fiap.Api
@@ -50,7 +52,27 @@ namespace Fiap.Api
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
+            services.AddAuthentication(
 
+                o =>
+                {
+                    o.DefaultAuthenticateScheme = "Jwt";
+                    o.DefaultChallengeScheme = "Jwt";
+
+                }).AddJwtBearer("Jwt", o =>
+                {
+                    o.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateAudience = false,
+                        ValidateIssuer = false,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Minha chave com pelo menos 16 cara")),
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.FromMinutes(5),
+                        
+
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +87,9 @@ namespace Fiap.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseAuthentication();
+
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 
