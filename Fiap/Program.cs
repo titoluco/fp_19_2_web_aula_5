@@ -1,7 +1,7 @@
 ﻿using Fiap.Core.Context;
 using Fiap.Custom;
 using Fiap.Middlewares;
-using Fiap.Services;
+using Fiap.Core.Services;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;

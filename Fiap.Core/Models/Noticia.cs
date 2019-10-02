@@ -8,5 +8,7 @@ namespace Fiap.Core.Models
 
         [Required]
         public string Titulo { get;  set; }
+        public string Imagem { get; set; }
+        public string Link{ get; set; }
     }
 }

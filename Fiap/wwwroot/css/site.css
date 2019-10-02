@@ -69,3 +69,15 @@ body {
     #menu ul li img {
         width: 50px;
     }
+
+
+#noticia ul {
+    display: inline-block;
+    list-style-type: none;
+    
+}
+
+    #noticia li {
+        list-style-type: none !important;
+
+    }
