@@ -1,36 +1,87 @@
 ﻿@model HomeViewModel
 
 
-<h1>Boa noite @Model.pessoa?.Nome</h1>
+<div class="row">
+    <div id="carroseul" class="col">
+        <div class="jcarousel-wrapper">
+            <div class="jcarousel">
+                <ul>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-1.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-2.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-3.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-4.png" />
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+            </div>
+            <div>	    </div>
 
-<p>
-    @Html.Raw( ViewBag.ConteudoSinistro)
-
-</p>
-@*<img src="~/cat.jpeg" asp-append-version="true" />*@
-
-@await Component.InvokeAsync("Noticias", new { quantidade = 5, noticiasUrgentes = false })
-
-@*<vc:noticias ></vc:noticias>*@
-
-<vc:noticias quantidade="3" noticiasurgentes="true"></vc:noticias>
-
-<email nome="rodolfo"></email>
-@*<a asp-email></a>*@
-
-@*@section scripts{
-        <script>alert('teste');</script>
-
-    }*@
+        </div>
+    </div>
+</div>
 
 
+<div class="row">
+    <div id="menu">
+        <ul>
+            <li>
+                <img class="icon" src="~/images/brasil.png" />
+                Brasil
+            </li>
+            <li>
+                <img class="icon" src="~/images/alemanha.png" />
+                Alemanha
+            </li>
+            <li>
+                <img class="icon" src="~/images/grecia.png" />
+                Grecia
+            </li>
+            <li>
+                <img class="icon" src="~/images/eua.png" />
+                EUA
+            </li>
+            <li>
+                <img class="icon" src="~/images/canada.png" />
+                Canada
+            </li>
+            <li>
+                <img class="icon" src="~/images/argentina.png" />
+                Argentina
+            </li>
+            <li>
+                <img class="icon" src="~/images/japao.png" />
+                Japão
+            </li>
+            <li>
+                <img class="icon" src="~/images/italia.png" />
+                Italia
+            </li>
+            <li>
+                <img class="icon" src="~/images/espanha.png" />
+                Espanha
+            </li>
+            <li>
+                <img class="icon" src="~/images/portugal.png" />
+                Portugal
+            </li>
+        </ul>
+    </div>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-<script type="text/javascript">
 
-    $.get("https://localhost:44300/api/destinos", function (data, status) {
-        console.log("Data: " + data);
-    });
-</script>
+
+<div class="row">
+    <div class=" col">
+        <vc:noticias quantidade="3" noticiasurgentes="true"></vc:noticias>
+    </div>
+</div>
