@@ -1,0 +1,58 @@
+/*
+This is an example of how to use the image sprite in your own CSS files
+*/
+.bandeiras {
+	background-image: url('bandeiras.sprite.png');
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+.bandeiras.alemanha {
+	width: 218px;
+	height: 124px;
+	background-position: -10px -10px;
+}
+.bandeiras.argentina {
+	width: 168px;
+	height: 99px;
+	background-position: -10px -144px;
+}
+.bandeiras.brasil {
+	width: 207px;
+	height: 121px;
+	background-position: -10px -253px;
+}
+.bandeiras.canada {
+	width: 157px;
+	height: 116px;
+	background-position: -10px -384px;
+}
+.bandeiras.espanha {
+	width: 211px;
+	height: 137px;
+	background-position: -10px -510px;
+}
+.bandeiras.grecia {
+	width: 165px;
+	height: 112px;
+	background-position: -10px -657px;
+}
+.bandeiras.eua {
+	width: 170px;
+	height: 93px;
+	background-position: -10px -779px;
+}
+.bandeiras.japao {
+	width: 177px;
+	height: 115px;
+	background-position: -10px -882px;
+}
+.bandeiras.italia {
+	width: 168px;
+	height: 110px;
+	background-position: -10px -1007px;
+}
+.bandeiras.portugal {
+	width: 222px;
+	height: 142px;
+	background-position: -10px -1127px;
+}

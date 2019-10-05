@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Microsoft.Net.Http.Headers;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace Fiap
 {
@@ -48,6 +50,16 @@ namespace Fiap
                 .SetApplicationName("admin")
                 .PersistKeysToFileSystem(new System.IO.DirectoryInfo("C:/teste"));
 
+            service.AddMemoryCache();
+
+
+            service.Configure<GzipCompressionProviderOptions>(o => { o.Level = System.IO.Compression.CompressionLevel.Fastest; });
+
+            service.AddResponseCompression(o => { o.Providers.Add<GzipCompressionProvider>(); });
+
+
+            //service.AddEnyimMemcached(o=>o.AddServer("127.0.0.1", 11211));
+
 
             //service.AddAuthentication("app")
             //    .AddCookie("app", b => {
@@ -60,7 +72,11 @@ namespace Fiap
         {
             app.UseLog();
 
+            //app.UseEnyimMemcached();
+
             //app.UseMiddleware<MeuLogMiddleware>();
+
+            app.UseResponseCompression();
 
 
             if (env.IsDevelopment())
@@ -68,7 +84,15 @@ namespace Fiap
 
             app.UseAuthentication();
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                OnPrepareResponse = ctx =>
+                {
+                    const int durationInSeconds = 60 * 60 * 24;
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl] =
+                        "public,max-age=" + durationInSeconds;
+                }
+            });
 
             app.UseMvc(
                 routes =>

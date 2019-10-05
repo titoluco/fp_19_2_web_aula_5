@@ -66,8 +66,7 @@ body {
     padding: 10px;
 }
 
-    #menu ul li img {
-        width: 50px;
+    #menu ul li div {
     }
 
 
@@ -80,4 +79,7 @@ body {
     #noticia li {
         list-style-type: none !important;
 
+    }
+    #minhadiv{
+        background-color:red;
     }

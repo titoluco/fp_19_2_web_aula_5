@@ -6,13 +6,12 @@
     <title>@ViewData["Title"] - WebApplication28</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link href="~/css/jcarousel.basic.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @*<link href="~/css/jcarousel.basic.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/css/bundle.min.css" asp-append-version="true" rel="stylesheet" />
 
-    <script src="~/js/jquery.jcarousel.js"></script>
-    <script src="~/js/site.js"></script>
+
 
     @RenderSection("head", false)
 
@@ -31,6 +30,11 @@
             &copy; 2019 - Fiap - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/js/jquery.jcarousel.js"></script>
+    <script src="~/js/jquery.lazy.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

@@ -1,7 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fiap.Core.Models
 {
+    [Serializable]
     public class Noticia
     {
         public int Id { get;  set; }

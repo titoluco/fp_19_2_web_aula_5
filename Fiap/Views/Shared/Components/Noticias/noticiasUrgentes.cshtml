@@ -7,7 +7,7 @@
                 @item.Titulo
                 @if (!string.IsNullOrWhiteSpace(item.Imagem))
                 {
-                    <img class="mt-1 img-fluid img-noticia" src="@item.Imagem" alt="Alternate Text" />
+                    <img class="lazy mt-1 img-fluid img-noticia" data-src="@item.Imagem" alt="Alternate Text" />
                 }
             </a>
         </li>
